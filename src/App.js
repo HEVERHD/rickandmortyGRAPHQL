@@ -1,8 +1,10 @@
 import * as React from 'react';
 import './App.css';
 import Logo from '../src/assets/logo.png';
-import CharactersQuery from './querys';
 import GlobalStyles from './GlobalStyles';
+import {ThemeProvider} from 'styled-components';
+import {Theme} from '../src/Theme';
+import Generate from './components/Generate';
 
 
 function App() {
@@ -12,8 +14,9 @@ function App() {
     <figure>
     <img src={Logo} alt="logo" />
     </figure>
-    <button > Generator </button>
-    <CharactersQuery />
+    <ThemeProvider theme={Theme}>
+    <Generate/>
+    </ThemeProvider>
     </div>
   );
 }

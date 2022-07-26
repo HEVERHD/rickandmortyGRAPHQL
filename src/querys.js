@@ -24,8 +24,6 @@ const GET_CHARACTERS = gql`
   }
 `;
 
-
-
 function CharactersQuery() {
   const { loading, error, data } = useQuery(GET_CHARACTERS);
   if (loading) return <p>Loading...</p>;
