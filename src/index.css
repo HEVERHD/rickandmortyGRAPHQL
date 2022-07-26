@@ -37,12 +37,7 @@ body {
 	width: 100%;
 }
 
-.filtrar {
-	width: 100%;
-	max-width: 60rem;
-	margin: 0 auto;
-	margin-bottom: 4rem;
-}
+
 input {
 	height: 4rem;
 	border: none;
