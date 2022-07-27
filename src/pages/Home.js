@@ -19,7 +19,7 @@ function Home(){
   
   
   const getRandom = () => {
-    return Math.floor(Math.random() * 826) + 1 
+    return Math.floor(Math.random() * 826) + 5; 
   } 
   
   
@@ -28,10 +28,11 @@ function Home(){
       <button onClick={() => getCharacter({ variables: { id: getRandom() } })}>
         Get Character
       </button>
-
       {data && <Character character={data.character} />}
       <ListCharacter list={list} />
-
+      { list.length > 0 && list.map(character => (
+        <Character key={character.id} character={character} />
+      ))}
     </div>
   );
 }

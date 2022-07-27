@@ -59,16 +59,6 @@ body {
 	width: 100%;
 }
 
-
-input {
-	height: 4rem;
-	border: none;
-	border-radius: 0.5rem;
-	padding: 0 1rem;
-	outline: var(--color-primary);
-	width: 100%;
-}
-
 .lista-personajes {
 	width: 100%;
 	display: grid;
@@ -84,18 +74,32 @@ input {
 	grid-template: 10rem auto / 1fr;
 	overflow: hidden;
 	animation: showCard 0.5s linear;
+	width: 100%;
+	display: grid;
+	grid-template: auto / 1fr;
+	gap: 4rem;
+	height: auto;
+	border-radius: 0.5rem;
+	box-shadow: 0px 0px 5px rgba(0,0,0,0.1);
+	transition: all 0.3s;
+	color: var(--color-light);
 }
 @keyframes showCard {
 	from {
-		opacity: 0;
+		opacity: 1;
 	}
 }
 .personaje-header {
 	background: var(--color-primary);
 	padding: 2rem;
 	text-align: right;
+	display: grid;
+	grid-template: auto / 1fr;
+	align-items: center;
 }
 .estado {
+	display: flex;
+	align-items: center;
 	background: var(--color-secondary);
 	display: inline-flex;
 	color: var(--color-light);
