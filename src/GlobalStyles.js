@@ -168,6 +168,14 @@ input {
 	font-weight: bold;
 }
 
+.loading {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	width: 100vw;
+}
+
 //responsive media queries
 
 @media screen and (min-width: 600px) {
@@ -177,6 +185,21 @@ input {
     .personaje {
         grid-template: 10rem auto / 1fr;
     }
+	.personaje-header {
+		text-align: left;
+	}
+	.personaje-body {
+		padding: 8rem 2rem 4rem;
+	}
+	.personaje-body h2 {
+		font-size: 2.4rem;
+	}
+	.personaje-body p {
+		font-size: 1.6rem;
+	}
+	.logo {
+		width: 30rem;
+	}
 }
 
 @media screen and (min-width: 1000px) {

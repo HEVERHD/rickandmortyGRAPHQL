@@ -4,18 +4,22 @@ import Logo from '../src/assets/logo.png';
 import GlobalStyles from './GlobalStyles';
 import {ThemeProvider} from 'styled-components';
 import {Theme} from '../src/Theme';
-import Generate from './components/Generate';
+import loading from '../src/assets/loading.gif';
+import Home from '../src/pages/Home';
 
 
 function App() {
   return (
     <div className="App">
     <GlobalStyles />
-    <figure>
+    <figure className='logo'>
     <img src={Logo} alt="logo" />
+    <Home />
     </figure>
     <ThemeProvider theme={Theme}>
-    <Generate/>
+    <figure className='loading'>
+    <img src={loading} alt="logo" />
+    </figure>
     </ThemeProvider>
     </div>
   );
