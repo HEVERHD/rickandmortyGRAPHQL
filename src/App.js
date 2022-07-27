@@ -5,15 +5,19 @@ import GlobalStyles from './GlobalStyles';
 import {ThemeProvider} from 'styled-components';
 import {Theme} from '../src/Theme';
 import Home from '../src/pages/Home';
+import { ListCharacter } from './components/ListCharacter';
 
 
 function App() {
+
+
   return (
     <div className="App">
     <GlobalStyles />
     <figure className='logo'>
     <img src={Logo} alt="logo" />
     <Home />
+    <ListCharacter />
     </figure>
     <ThemeProvider theme={Theme}>
     </ThemeProvider>

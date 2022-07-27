@@ -2,6 +2,11 @@ import React from 'react';
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
+import {store} from "../src/reducers/store";
+
+//redux
+import { Provider } from "react-redux";
+
 
 
 
@@ -18,7 +23,9 @@ const client = new ApolloClient({
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <ApolloProvider client={client}>
+    <Provider store={store}>
     <App />
+    </Provider>
   </ApolloProvider>
 );
 

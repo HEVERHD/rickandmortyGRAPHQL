@@ -1,38 +1,38 @@
 import * as React from "react";
-import { useLazyQuery } from "@apollo/client";
+import { useLazyQuery} from "@apollo/client";
 import  GET_CHARACTER  from "../graphql/Queries";
 import Character from "../components/Character";
-import { ListCharacter } from "../components/ListCharacter";
+
+import { useDispatch } from "react-redux";
+import { addCharacter } from "../features/characterSlice";
+
 
 
 function Home(){
-  const [list , setList] = React.useState([]);
+  
+  
   const [getCharacter, { loading, error, data }] = useLazyQuery(GET_CHARACTER);
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error no data :( </p>;
-
-  if (data && data.characters) {
-    setList(data.characters);
-  }
-    
-  console.log(data);
   
   
+  const dispatch = useDispatch();
+  
+  
+  // Generar una lista de personajes random por ID
   const getRandom = () => {
     return Math.floor(Math.random() * 826) + 5; 
   } 
   
-  
+
   return (
     <div>
-      <button onClick={() => getCharacter({ variables: { id: getRandom() } })}>
-        Get Character
+      <button onClick={() => getCharacter ({ variables: { id: getRandom() } })}>
+       Get Character Random
       </button>
       {data && <Character character={data.character} />}
-      <ListCharacter list={list} />
-      { list.length > 0 && list.map(character => (
-        <Character key={character.id} character={character} />
-      ))}
+     
+      
     </div>
   );
 }
