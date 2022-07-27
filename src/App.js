@@ -9,15 +9,12 @@ import { ListCharacter } from './components/ListCharacter';
 
 
 function App() {
-
-
   return (
     <div className="App">
     <GlobalStyles />
     <figure className='logo'>
     <img src={Logo} alt="logo" />
-    <Home />
-    <ListCharacter />
+     <Home />
     </figure>
     <ThemeProvider theme={Theme}>
     </ThemeProvider>

@@ -1,68 +1,52 @@
 import * as React from "react";
-import { useLazyQuery} from "@apollo/client";
-import  GET_CHARACTER  from "../graphql/Queries";
+
+import { useLazyQuery } from "@apollo/client";
+import GET_CHARACTER from "../graphql/Queries";
 import Character from "../components/Character";
 
-import { useDispatch } from "react-redux";
-import { addCharacter } from "../features/characterSlice";
+function Home() {
+  const [list, setList] = React.useState([]);
+  const [currentCharacter, setCurrentCharacter] = React.useState(null);
+  const [getCharacter, { loading, error, data }] = useLazyQuery(GET_CHARACTER, {
+    onCompleted: data => {
+      setList([data.character, ...list]);
+      setCurrentCharacter(data.character);
+    }
+  });
 
-
-
-function Home(){
-  
-  
-  const [getCharacter, { loading, error, data }] = useLazyQuery(GET_CHARACTER);
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error no data :( </p>;
-  
-  
-  const dispatch = useDispatch();
-  
-  
+
+  if (data) {
+    console.log("hola")
+  }
+
   // Generar una lista de personajes random por ID
   const getRandom = () => {
-    return Math.floor(Math.random() * 826) + 5; 
-  } 
-  
+    return Math.floor(Math.random() * 826) + 5;
+  };
 
   return (
     <div>
-      <button onClick={() => getCharacter ({ variables: { id: getRandom() } })}>
-       Get Character Random
+      <button onClick={() => getCharacter({ variables: { id: getRandom() } })}>
+        Get Character Random
       </button>
-      {data && <Character character={data.character} />}
-     
-      
+      {data && <Character character={currentCharacter} />}
+      {list.length > 0 && list.map(character => (
+        <div key={character.id}>
+          <h1>{character.name}</h1>
+          <img src={character.image} alt={character.name} />
+          
+      <button onClick={() => setCurrentCharacter(character)}>
+      view
+    </button>
+        </div>
+      ))}
     </div>
   );
 }
-        
 
 export default Home;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // function CharactersQuery() {
 //   const { loading, error, data } = useQuery(GET_CHARACTERS);
