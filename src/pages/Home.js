@@ -7,11 +7,11 @@ import GET_CHARACTER from "../graphql/Queries";
 //components React
 import Character from "../components/Character";
 import { Loadings } from "../components/Loadings";
+import { Error } from "../components/Error";
 
 //Styled Components
 import { Headers } from "../components/Character.element";
 import { Button } from "../components/Button.elemtens";
-
 
 function Home() {
   const [list, setList] = React.useState([]);
@@ -24,7 +24,7 @@ function Home() {
   });
 
   if (loading) return <Loadings />;
-  if (error) return <p>Error no data :( </p>;
+  if (error) return <Error />;
 
   if (data) {
     console.log("hola");
@@ -36,27 +36,36 @@ function Home() {
   };
 
   return (
-    <div>
+    <div className="container-princ">
       <Button
         className="btn"
         onClick={() => getCharacter({ variables: { id: getRandom() } })}
       >
         Get Character Random
       </Button>
+      <div>
+      <Headers>History</Headers>
+      </div>
+      <div className="container-list">
       {data && <Character character={currentCharacter} />}
       {list.length > 0 &&
         list.map((character) => (
-          <div className="history" key={character.id}>
-          <li>
-              <Headers>{character.name}</Headers>
-              <img src={character.image} alt={character.name} />
-              <Button className="view" onClick={() => setCurrentCharacter(character)}>
+          <div className="lis-characters" key={character.id}>
+       
+            <div className="container-name">
+              <Headers className="name-list">{character.name}</Headers>
+              <Button onClick={() => setCurrentCharacter(character)}>
                 view
               </Button>
-            </li>
+              <div className="img-list">
+                <img src={character.image} alt={character.name} />
+                
+              </div>
+            </div>
           </div>
         ))}
-    </div>
+      </div>
+      </div>
   );
 }
 

@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const Button = styled.button`
+    scroll-behavior: smooth;
     font-size: 1.6rem;
     font-weight: bold;
     padding: 0.5rem 1rem;
