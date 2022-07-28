@@ -1,5 +1,5 @@
 import React from "react";
-import { Headers,Title } from "./Character.element";
+import { Title } from "./Character.element";
 
 const Character = ({ character }) => {
   return (

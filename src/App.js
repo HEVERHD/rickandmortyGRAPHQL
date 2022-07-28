@@ -16,6 +16,7 @@ function App() {
     <div className='logo'>
     <img src={Logo} alt="logo" />
     </div>
+    
     </div>
      <Home />
     <ThemeProvider theme={Theme}>

@@ -30,42 +30,56 @@ function Home() {
     console.log("hola");
   }
 
-  // Generar una lista de personajes random por ID
-  const getRandom = () => {
-    return Math.floor(Math.random() * 826) + 5;
-  };
+  // Generate a random number between 1 and 826
 
+  function randomNumber() {
+    return Math.floor(Math.random() * 826) + 1;
+  }
+
+  // scroll to top
+  function scrollToTop() {
+    window.scrollTo({ top: 640, behavior: "smooth" });
+  }
+
+  function todos(){
+    // setCurrentCharacter(); setList([]);
+   scrollToTop();
+
+  
+  }
   return (
     <div className="container-princ">
-      <Button
-        className="btn"
-        onClick={() => getCharacter({ variables: { id: getRandom() } })}
-      >
-        Get Character Random
-      </Button>
+    <div className="btn-random">
+    <Button
+      onClick={() => getCharacter({ variables: { id: randomNumber() } })}
+    >
+      Get Character Random
+    </Button>
+    </div>
       <div>
-      <Headers>History</Headers>
+        <Headers>History</Headers>
       </div>
       <div className="container-list">
-      {data && <Character character={currentCharacter} />}
-      {list.length > 0 &&
-        list.map((character) => (
-          <div className="lis-characters" key={character.id}>
-       
-            <div className="container-name">
-              <Headers className="name-list">{character.name}</Headers>
-              <Button onClick={() => setCurrentCharacter(character)}>
-                view
-              </Button>
-              <div className="img-list">
+        {data && <Character character={currentCharacter} />}
+        {list.length > 0 &&
+          list.map((character) => (
+            <div className="lis-characters" key={character.id}>
+              <div className="container-name">
+                <Headers className="name-list">{character.name}</Headers>
+                <div className="img-list">
                 <img src={character.image} alt={character.name} />
+                <div className="btn-list">
+                <Button  onClick= {()  => todos()}>
+                  view
+                </Button>
+                </div>
                 
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
       </div>
-      </div>
+    </div>
   );
 }
 
