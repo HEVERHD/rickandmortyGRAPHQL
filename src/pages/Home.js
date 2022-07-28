@@ -26,9 +26,6 @@ function Home() {
   if (loading) return <Loadings />;
   if (error) return <Error />;
 
-  if (data) {
-    console.log("hola");
-  }
 
   // Generate a random number between 1 and 826
 
@@ -38,12 +35,12 @@ function Home() {
 
   // scroll to top
   function scrollToTop() {
-    window.scrollTo({ top: 640, behavior: "smooth" });
+    window.scrollTo({ top: 200, behavior: "smooth" });
   }
 
-  function todos(){
-    // setCurrentCharacter(); setList([]);
-   scrollToTop();
+  function todos(character){
+    setCurrentCharacter(character);
+    scrollToTop();
 
   
   }
@@ -56,20 +53,21 @@ function Home() {
       Get Character Random
     </Button>
     </div>
-      <div>
-        <Headers>History</Headers>
-      </div>
       <div className="container-list">
         {data && <Character character={currentCharacter} />}
         {list.length > 0 &&
-          list.map((character) => (
+          <>
+      <Headers>
+      history
+      </Headers>
+          {list.map((character) => (
             <div className="lis-characters" key={character.id}>
               <div className="container-name">
                 <Headers className="name-list">{character.name}</Headers>
                 <div className="img-list">
                 <img src={character.image} alt={character.name} />
                 <div className="btn-list">
-                <Button  onClick= {()  => todos()}>
+                <Button  onClick= {()  => todos(character)}>
                   view
                 </Button>
                 </div>
@@ -78,6 +76,8 @@ function Home() {
               </div>
             </div>
           ))}
+        
+          </>}
       </div>
     </div>
   );
