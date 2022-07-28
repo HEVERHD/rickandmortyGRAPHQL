@@ -1,11 +1,10 @@
 import * as React from 'react';
-import './App.css';
 import Logo from '../src/assets/logo.png';
 import GlobalStyles from './GlobalStyles';
 import {ThemeProvider} from 'styled-components';
 import {Theme} from '../src/Theme';
 import Home from '../src/pages/Home';
-import { ListCharacter } from './components/ListCharacter';
+
 
 
 function App() {
