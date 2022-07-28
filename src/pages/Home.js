@@ -1,9 +1,17 @@
 import * as React from "react";
-import { Headers } from "../components/Character.element";
 
+//GraphQL
 import { useLazyQuery } from "@apollo/client";
 import GET_CHARACTER from "../graphql/Queries";
+
+//components React
 import Character from "../components/Character";
+import { Loadings } from "../components/Loadings";
+
+//Styled Components
+import { Headers } from "../components/Character.element";
+import { Button } from "../components/Button.elemtens";
+
 
 function Home() {
   const [list, setList] = React.useState([]);
@@ -15,7 +23,7 @@ function Home() {
     },
   });
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <Loadings />;
   if (error) return <p>Error no data :( </p>;
 
   if (data) {
@@ -29,12 +37,12 @@ function Home() {
 
   return (
     <div>
-      <button
+      <Button
         className="btn"
         onClick={() => getCharacter({ variables: { id: getRandom() } })}
       >
         Get Character Random
-      </button>
+      </Button>
       {data && <Character character={currentCharacter} />}
       {list.length > 0 &&
         list.map((character) => (
@@ -42,9 +50,9 @@ function Home() {
           <li>
               <Headers>{character.name}</Headers>
               <img src={character.image} alt={character.name} />
-              <button className="view" onClick={() => setCurrentCharacter(character)}>
+              <Button className="view" onClick={() => setCurrentCharacter(character)}>
                 view
-              </button>
+              </Button>
             </li>
           </div>
         ))}
