@@ -18,6 +18,9 @@ export const Button = styled.button`
     }
 `;
 export const ButtonDelete = styled.a`
+    display: flex;
+    justify-content: center;
+    align-items: center;
     scroll-behavior: smooth;
     font-size: 1.6rem;
     font-weight: bold;

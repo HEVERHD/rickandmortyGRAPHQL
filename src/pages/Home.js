@@ -13,7 +13,7 @@ import { Noper } from "../components/Noper";
 
 //Styled Components
 import { Headers, Title } from "../components/Character.element";
-import { Button } from "../components/Button.elemtens";
+import { Button, ButtonDelete } from "../components/Button.elemtens";
 
 function Home() {
   const [list, setList] = React.useState([]);
@@ -82,11 +82,11 @@ function Home() {
                     <div className="btn-list">
                       <Button onClick={() => todos(character)}>view</Button>
                       <div className="btn-list"> 
-                        <Button
+                        <ButtonDelete
                           onClick={() => deleteCharacter(character.id)}
                         >
                           Delete 
-                        </Button>
+                        </ButtonDelete>
                       </div>
                     </div>
                 </div>
