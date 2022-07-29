@@ -1,10 +1,12 @@
 import React from "react";
 import { Title } from "./Character.element";
 
+
 const Character = ({ character }) => {
   return (
     <div className="container">
       <section className="personaje">
+      <Title>id : {character.id}</Title>
         <div className="personaje-header">
           <div className="estado">
             <span className={character.status}></span>
@@ -12,13 +14,13 @@ const Character = ({ character }) => {
           </div>
         </div>
         <div className="personaje-body">
+       
           <figure>
             <img src={character.image} alt={character.name} />
-            <Title>{character.id}</Title>
           </figure>
-
-          <h2>{character.name}</h2>
-          <p><b>Specie</b> : {character.species}</p>
+          <Title>{character.name}</Title>
+          <p>
+          <b>Specie</b> : {character.species}</p>
           <p>
             <b>Types</b> : {character.type ? character.type : "no Type"}
           </p>
