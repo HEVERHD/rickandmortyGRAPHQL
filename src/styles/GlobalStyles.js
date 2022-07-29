@@ -1,9 +1,7 @@
 import {createGlobalStyle} from 'styled-components';
 
 const GlobalStyles = createGlobalStyle`
-
 * {
-
     padding: 0;
     box-sizing: border-box;
   }
@@ -71,6 +69,16 @@ const GlobalStyles = createGlobalStyle`
     --color-secondary: #28527a;
     --color-light: #dbf6e9;
     --color-dark: #151515;
+    --color-red: #ff0000;
+    --color-green: #00ff00;
+    --color-blue: #0000ff;
+    --color-yellow: #ffff00;
+    --color-orange: #ffa500;
+    --color-purple: #800080;
+    --color-pink: #ffc0cb;
+    --color-brown: #8b4513;
+    --color-black: #000000;
+    --color-white: #ffffff;
   }
   
   .error {
@@ -151,13 +159,13 @@ const GlobalStyles = createGlobalStyle`
     border-radius: 50%;
   }
   .Alive {
-    background: #31a703;
+    background: green;
   }
   .Dead {
-    background: #d34b4b;
+    background: red;
   }
   .unknown {
-    background: #afafaf;
+    background: orange;
   }
   .personaje-body {
     padding: 8rem 2rem 4rem;

@@ -13,7 +13,7 @@ import { Noper } from "../components/Noper";
 
 //Styled Components
 import { Headers, Title } from "../components/Character.element";
-import { Button, ButtonDelete } from "../components/Button.elemtens";
+import { Button,} from "../components/Button.elemtens";
 
 function Home() {
   const [list, setList] = React.useState([]);
@@ -80,14 +80,12 @@ function Home() {
                     <img src={character.image} alt={character.name} />
                     </div>
                     <div className="btn-list">
-                      <Button onClick={() => todos(character)}>view</Button>
-                      <div className="btn-list"> 
-                        <ButtonDelete
+                      <Button color={"#00D146"} onClick={() => todos(character)}>view</Button>
+                        <Button color={"#D10000"}
                           onClick={() => deleteCharacter(character.id)}
                         >
                           Delete 
-                        </ButtonDelete>
-                      </div>
+                        </Button>
                     </div>
                 </div>
               </div>
