@@ -1,19 +1,21 @@
 import React from "react";
 
 //Styled Components
-import { Headersb, Title, Estado } from "./Character.element";
+import { Headersb, Title, Estado,} from "./Character.element";
 
 const Character = ({ character }) => {
   return (
     <div className="container">
       <section className="personaje">
         <Title>id : {character.id}</Title>
-        <Estado className="personaje-header">
+        <Estado >
+        <div className="personaje-header">
           <div className="estado">
             <span className={character.status}></span>
             <div>{character.status}</div>
           </div>
-        </Estado>
+          </div>
+          </Estado>
         <div className="personaje-body">
           <figure>
             <img src={character.image} alt={character.name} />

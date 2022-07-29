@@ -46,14 +46,14 @@ export const Estado = styled.div`
     padding: 2rem;
     text-align: right;
   
- & span{
+ span{
   display: block;
     height: 1rem;
     width: 1rem;
     border-radius: 50%;
   }
-  &estado{
-    background: var(--color-secondary);
+    &estado{
+    background: ${({ theme }) => theme.dark};
     display: inline-flex;
     color: var(--color-light);
     padding: 0.5rem 1rem;
@@ -64,21 +64,54 @@ export const Estado = styled.div`
     align-items: center;
     column-gap: 1rem;
   }
-  & estado span{
+  & .estado span{
     display: block;
     height: 1rem;
     width: 1rem;
     border-radius: 50%;
   }
-  & Alive{
+  .Alive{
     background: ${({ theme }) => theme.green};
   }
-  & Dead{
+  .Dead{
     background: ${({ theme }) => theme.red};
   }
-  & unknown{
-    background: ${({ theme }) => theme.orange};
+  .unknown{
+    background: ${({ theme }) => theme.unknown};
+
+  }
+ 
+`
+export const Personaje = styled.div`
+     background: ${({ theme }) => theme.secondary};
+    border-radius: 0.3rem;
+    box-shadow: 0 0 1rem 0 rgba(255, 255, 255, 0.1);
+    display: grid;
+    grid-template: 10rem auto / 1fr;
+    overflow: hidden;
+    animation: showCard 0.5s linear;
+    @keyframes showCard {
+    from {
+      opacity: 0;
+    }
+
+  & .personaje-header{
+    padding: 2rem;
+    text-align: right;
   }
 
-`
-  
+  & .estado{
+    background: ${({ theme }) => theme.secondary};
+    display: inline-flex;
+    color: var(--color-light);
+    padding: 0.5rem 1rem;
+    border-radius: 2.5rem;
+    font-size: 1.2rem;
+    width: auto;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 1rem;
+  }
+
+
+`  

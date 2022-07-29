@@ -4,6 +4,7 @@ const GlobalStyles = createGlobalStyle`
 * {
     padding: 0;
     box-sizing: border-box;
+    margin: 0;
   }
   
   body {
@@ -136,7 +137,6 @@ const GlobalStyles = createGlobalStyle`
     }
   }
   .personaje-header {
-    background: var(--color-primary);
     padding: 2rem;
     text-align: right;
   }
@@ -157,15 +157,6 @@ const GlobalStyles = createGlobalStyle`
     height: 1rem;
     width: 1rem;
     border-radius: 50%;
-  }
-  .Alive {
-    background: green;
-  }
-  .Dead {
-    background: red;
-  }
-  .unknown {
-    background: orange;
   }
   .personaje-body {
     padding: 8rem 2rem 4rem;
@@ -204,7 +195,7 @@ const GlobalStyles = createGlobalStyle`
       background: rgba(219, 246, 233, 0.9);
       border-radius: 0.5rem;
       height: 4rem;
-      margin-top: 0rem;
+      margin-top: 0.5rem;
       line-height: 4rem;
       text-align: center;
       font-size: larger;
@@ -267,8 +258,11 @@ const GlobalStyles = createGlobalStyle`
       }
   
           .personaje-header {
-              padding: 2rem;
-              text-align: initial;
+            padding: 5rem;
+            text-align: initial;
+            display: flex;
+            justify-content: center;
+            padding-top: initial;
           }
   
       .btn-list {
