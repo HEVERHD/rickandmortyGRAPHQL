@@ -16,10 +16,11 @@ const Character = ({ character }) => {
           </div>
           </div>
           </Estado>
-        <div className="personaje-body">
-          <figure>
-            <img src={character.image} alt={character.name} />
-          </figure>
+          <div className="personaje-body">
+          <figure className="personaje-image">
+          <img className="img" src={character.image} alt={character.name} />
+        <img src={character.image} alt={character.name} />
+      </figure>
           <Headersb>{character.name}</Headersb>
           <p>
             <b>Specie</b> : {character.species}

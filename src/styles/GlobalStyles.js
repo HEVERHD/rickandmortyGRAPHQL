@@ -110,6 +110,14 @@ const GlobalStyles = createGlobalStyle`
     height: 40vmin;
     pointer-events: none;
   }
+
+  .img{
+    position: absolute;
+    height: 300px;
+    width: 300px;
+    z-index: -1;
+
+  }
   
   .btn {
     width: auto;

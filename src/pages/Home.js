@@ -4,7 +4,8 @@ import * as React from "react";
 import { useLazyQuery } from "@apollo/client";
 import GET_CHARACTER from "../graphql/Queries";
 
-//components React
+//components
+
 import Character from "../components/Character";
 import { Loadings } from "../components/Loadings";
 import { Error } from "../components/Error";
@@ -13,7 +14,7 @@ import { Noper } from "../components/Noper";
 
 //Styled Components
 import { Headers, Title } from "../components/Character.element";
-import { Button,} from "../components/Button.elemtens";
+import { Button } from "../components/Button.elemtens";
 
 function Home() {
   const [list, setList] = React.useState([]);
@@ -34,7 +35,6 @@ function Home() {
     return Math.floor(Math.random() * 826) + 1;
   }
 
- 
   // Contador de personajes
 
   // scroll to top
@@ -53,7 +53,6 @@ function Home() {
     scrollToTop();
   }
 
-
   return (
     <div className="container-princ">
       <div className="btn-random">
@@ -63,10 +62,8 @@ function Home() {
           {" "}
           Get Character Random
         </Button>
-        </div>
-        <>
-        {!currentCharacter && <Noper /> !== null && <Noper />}
-        </>
+      </div>
+      <>{!currentCharacter && <Noper /> !== null && <Noper />}</>
       <div className="container-list">
         {data && <Character character={currentCharacter} />}
         {list.length > 0 && (
@@ -78,15 +75,18 @@ function Home() {
                   <Headers className="name-list">{character.name}</Headers>
                   <div className="img-list">
                     <img src={character.image} alt={character.name} />
-                    </div>
-                    <div className="btn-list">
-                      <Button color={"#00D146"} onClick={() => todos(character)}>view</Button>
-                        <Button color={"#D10000"}
-                          onClick={() => deleteCharacter(character.id)}
-                        >
-                          Delete 
-                        </Button>
-                    </div>
+                  </div>
+                  <div className="btn-list">
+                    <Button color={"#00D146"} onClick={() => todos(character)}>
+                      view
+                    </Button>
+                    <Button
+                      color={"#D10000"}
+                      onClick={() => deleteCharacter(character.id)}
+                    >
+                      Delete
+                    </Button>
+                  </div>
                 </div>
               </div>
             ))}
