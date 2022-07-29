@@ -202,7 +202,6 @@ const GlobalStyles = createGlobalStyle`
   .personaje-body p {
       width: 100%;
       background: rgba(219, 246, 233, 0.9);
-      color: var(--color-dark);
       border-radius: 0.5rem;
       height: 4rem;
       margin-top: 0rem;

@@ -1,26 +1,27 @@
 import React from "react";
-import { Title } from "./Character.element";
 
+//Styled Components
+import { Headersb, Title, Estado } from "./Character.element";
 
 const Character = ({ character }) => {
   return (
     <div className="container">
       <section className="personaje">
-      <Title>id : {character.id}</Title>
-        <div className="personaje-header">
+        <Title>id : {character.id}</Title>
+        <Estado className="personaje-header">
           <div className="estado">
             <span className={character.status}></span>
-            <h4>{character.status}</h4>
+            <div>{character.status}</div>
           </div>
-        </div>
+        </Estado>
         <div className="personaje-body">
-       
           <figure>
             <img src={character.image} alt={character.name} />
           </figure>
-          <Title>{character.name}</Title>
+          <Headersb>{character.name}</Headersb>
           <p>
-          <b>Specie</b> : {character.species}</p>
+            <b>Specie</b> : {character.species}
+          </p>
           <p>
             <b>Types</b> : {character.type ? character.type : "no Type"}
           </p>
